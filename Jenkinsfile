@@ -1,6 +1,7 @@
 node ("master"){
   
   def mvnHome = tool name: 'maven-3', type: 'maven'
+  def git = tool name: 'git'
   
   env.BN = VersionNumber([
         versionNumberString : '${BUILD_MONTH}.${BUILDS_TODAY}.${BUILD_NUMBER}', 
@@ -19,7 +20,7 @@ node ("master"){
   stage("MVN change version and package"){
     sh "${mvnHome}/bin/mvn versions:set -DnewVersion=$BN -DgenerateBackupPoms=false"
     sh "${mvnHome}/bin/mvn clean package"
-    sh "${W_GIT_HOME} checkout -b release_${BN}"  
+    sh "${git} checkout -b release_${BN}"  
         
   }
   
