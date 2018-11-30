@@ -18,6 +18,7 @@ node ("master"){
   
  
   stage("MVN change version and package"){
+    echo "starting build "
     sh "${mvnHome}/bin/mvn versions:set -DnewVersion=$BN -DgenerateBackupPoms=false"
     sh "${mvnHome}/bin/mvn clean package"
     sh "${git} checkout -b release_${BN}"  
@@ -35,7 +36,7 @@ node ("master"){
   }
   
   stage ("Testing"){
-    # install junit app
+    echo ""
   }
   
 }
