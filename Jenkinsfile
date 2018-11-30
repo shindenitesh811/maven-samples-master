@@ -1,5 +1,5 @@
 node ("master"){
   stage ("Build") {
-    sh "echo hello world"
+    echo "hello world"
   } 
 }
