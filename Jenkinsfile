@@ -34,5 +34,8 @@ node ("master"){
         stash includes: '**', name: 'SOURCE_CODE'
   }
   
+  stage ("Testing"){
+    # install junit app
+  }
   
 }
