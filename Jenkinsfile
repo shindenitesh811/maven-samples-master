@@ -30,7 +30,7 @@ node ("master"){
   
   stage ("STASHING THE CODE"){
     echo 'Stash the project source code ...'
-        stash includes: '**', excludes: '**/TestPlan.jmx', name: 'SOURCE_CODE'
+        stash includes: '**', name: 'SOURCE_CODE'
   }
   
   
